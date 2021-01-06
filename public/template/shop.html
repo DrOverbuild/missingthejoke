@@ -1,5 +1,7 @@
 <div class="blackbkgd container-md shop">
-    <h2 class="pt-5">We have Stickers</h2>
+    <div class="row pt-5">
+        <h2 class="col-12">We have Stickers</h2>
+    </div>
     <div class="row p-5">
         <div class="col-sm-3 pb-3">
             <img src="/img/missingthejokelogo.jpg" class="sticker-icon">
@@ -21,15 +23,15 @@
 
             <div id="sticker-options">
                 <div class="row pt-3">
-                    <input class="selection-radio" type="radio" id="button-artwork" name="whichsticker"
-                           value="artwork" checked>
+                    <input class="selection-radio" type="radio" id="button-artwork" ng-model="stickerSelection" name="whichsticker"
+                           value="artwork">
                     <label for="button-artwork">
                         <span class="radio-container"><i class="fas fa-check"></i></span>
                         <span class="radio-label">1 Missing the Joke Artwork Sticker</span>
                     </label>
                 </div>
                 <div class="row pt-3">
-                    <input class="selection-radio" type="radio" id="button-derpface" name="whichsticker"
+                    <input class="selection-radio" type="radio" id="button-derpface" ng-model="stickerSelection" name="whichsticker"
                            value="derpface">
                     <label for="button-derpface">
                         <span class="radio-container"><i class="fas fa-check"></i></span>
@@ -38,7 +40,8 @@
                 </div>
 
                 <div class="row pt-3">
-                    <input class="selection-radio" type="radio" id="button-other" name="whichsticker" value="both">
+                    <input class="selection-radio" type="radio" id="button-other" ng-model="stickerSelection" name="whichsticker"
+                           value="both">
                     <label for="button-other">
                         <span class="radio-container"><i class="fas fa-check"></i></span>
                         <span class="radio-label">Both Stickers</span>
@@ -47,30 +50,10 @@
             </div>
 
             <div id="price-order-button">
-                <p class="pricetag">$2.50</p>
-                <button id="order1" class="order">Order</button>
+                <p class="pricetag" ng-show="stickerSelection == 'artwork' || stickerSelection == 'derpface'">$2.50</p>
+                <p class="pricetag" ng-show="stickerSelection == 'both'">$3.50</p>
+                <button type="button" id="order1" class="order" ng-click="stickerSelected()">Order</button>
             </div>
-        </div>
-    </div>
-
-    <div class="address-input">
-        <a id="backbutton">< BACK</a>
-
-        <input type="text" id="namefield" name="name" placeholder="Name">
-        <input type="email" id="emailfield" name="email" placeholder="Email">
-        <input type="text" id="street1field" name="street1" placeholder="Address Line 1">
-        <input type="text" id="street2field" name="street2" placeholder="Address Line 2">
-        <input type="text" id="mobilecityfield" name="city" placeholder="City">
-        <div class="lastrow">
-            <input type="text" id="cityfield" name="city" placeholder="City">
-            <input type="text" id="statefield" name="state" placeholder="State">
-            <input type="text" id="zipfield" style="max-width: 8rem" name="zip" placeholder="Zip">
-        </div>
-
-        <p class="note">Note: Currently we are only mailing in the US.</p>
-        <div id="price-order-button">
-            <p class="pricetag">$2.50</p>
-            <button id="order2" class="order">Order</button>
         </div>
     </div>
 </div>
