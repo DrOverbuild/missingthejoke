@@ -1,10 +1,10 @@
 (function() {
     var mtjapp = angular.module('mtjapp');
 
-    mtjapp.controller('shopController', function ($scope) {
+    mtjapp.controller('shopController', function ($scope, $location) {
         $scope.stickerSelection = "artwork";
         $scope.stickerSelected = function() {
-            console.log($scope.stickerSelection);
+            $location.path(`/addressform/${$scope.stickerSelection}`);
         }
     });
 })();

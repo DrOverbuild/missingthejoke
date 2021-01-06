@@ -1,4 +1,4 @@
-<form class="blackbkgd container-md address-input">
+<form name="addressForm" class="blackbkgd container-md address-input" ng-submit="submit()">
     <div class="row pt-5">
         <h2 class="col-12">We have Stickers</h2>
     </div>
@@ -10,37 +10,37 @@
     </div>
     <div class="row pt-3">
         <div class="col-12">
-            <input type="text" id="namefield" name="name" placeholder="Name">
+            <input type="text" id="namefield" name="name" placeholder="Name" ng-model="address.name" required>
         </div>
     </div>
 
     <div class="row pt-3">
         <div class="col-12">
-            <input type="email" id="emailfield" name="email" placeholder="Email">
+            <input type="email" id="emailfield" name="email" placeholder="Email" ng-model="address.email" required validemail>
         </div>
     </div>
 
     <div class="row pt-3">
         <div class="col-12">
-            <input type="text" id="street1field" name="street1" placeholder="Address Line 1">
+            <input type="text" id="street1field" name="street1" placeholder="Address Line 1" ng-model="address.street1" required>
         </div>
     </div>
 
     <div class="row pt-3">
         <div class="col-12">
-            <input type="text" id="street2field" name="street2" placeholder="Address Line 2">
+            <input type="text" id="street2field" name="street2" placeholder="Address Line 2" ng-model="address.street2">
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-8 pt-3">
-            <input type="text" id="cityfield" name="city" placeholder="City">
+            <input type="text" id="cityfield" name="city" placeholder="City" ng-model="address.city" required>
         </div>
         <div class="col-sm-2 pt-3">
-            <input type="text" id="statefield" name="state" placeholder="State">
+            <input type="text" id="statefield" name="state" placeholder="State" ng-model="address.state" required validstate>
         </div>
         <div class="col-sm-2 pt-3">
-            <input type="text" id="zipfield" name="zip" placeholder="Zip">
+            <input type="text" id="zipfield" name="zip" placeholder="Zip" ng-model="address.zip" required validzip>
         </div>
     </div>
 
@@ -52,8 +52,8 @@
 
     <div class="row pt-3" id="price-order-button">
         <div class="col-12 text-right">
-            <p class="pricetag">$2.50</p>
-            <button id="order2" class="order">Order</button>
+            <p class="pricetag">${{price}}</p>
+            <button type="submit" id="order2" class="order" ng-disabled="addressForm.$invalid">Order</button>
         </div>
     </div>
 </form>
