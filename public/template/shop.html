@@ -1,1 +1,72 @@
-<h2>Shop</h2>
+<div class="blackbkgd">
+    <div id="flexforcenter">
+        <h2>We have Stickers</h2>
+        <div class="columns">
+            <div class="leftside">
+                <img src="/img/missingthejokelogo.jpg" class="sticker-icon">
+                <p class="sticker-label">Artwork Sticker</p>
+                <img src="/img/wooosh.jpg" class="sticker-icon">
+                <p class="sticker-label">Derpface Sticker</p>
+            </div>
+
+            <div class="rightside">
+                <p>Our high quality vinyl 2" x 2" stickers are perfect for your laptop, notebook, HydroFlask
+                    (sksksks), or any other surface you enjoy cluttering with brand representation. Sport
+                    the Missing the Joke logo featuring the beautiful faces of Micah and Jasper, or go along with the
+                    work of art (probably a Microsoft Paint drawing) that is the joke flying over the head of our
+                    mascot, Derpface. Or take them both because you're indecisive and because we can give you a better
+                    price. Stickers will be mailed to your billing address.
+                </p>
+
+                <div class="mobileimages">
+                    <div class="artworksticker">
+                        <img src="/img/missingthejokelogo.jpg" class="sticker-icon">
+                        <p class="sticker-label">Artwork Sticker</p>
+                    </div>
+                    <div class="derpfacesticker">
+                        <img src="/img/wooosh.jpg" class="sticker-icon">
+                        <p class="sticker-label">Derpface Sticker</p>
+                    </div>
+                </div>
+
+                <div id="sticker-options">
+                    <input class="selection-radio" type="radio" id="button-artwork" name="whichsticker"
+                           value="artwork" checked>
+                    <label for="button-artwork">1 Missing the Joke Artwork Sticker</label><br>
+                    <input class="selection-radio" type="radio" id="button-derpface" name="whichsticker"
+                           value="derpface">
+                    <label for="button-derpface">1 Derpface Woooosh Sticker</label><br>
+                    <input class="selection-radio" type="radio" id="button-other" name="whichsticker"
+                           value="both">
+                    <label for="button-other">Both Stickers</label>
+                </div>
+
+                <div id="price-order-button">
+                    <p class="pricetag">$2.50</p>
+                    <button id="order1" class="order">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="address-input">
+            <a id="backbutton">< BACK</a>
+
+            <input type="text" id="namefield" name="name" placeholder="Name">
+            <input type="email" id="emailfield" name="email" placeholder="Email">
+            <input type="text" id="street1field" name="street1" placeholder="Address Line 1">
+            <input type="text" id="street2field" name="street2" placeholder="Address Line 2">
+            <input type="text" id="mobilecityfield" name="city" placeholder="City">
+            <div class="lastrow">
+                <input type="text" id="cityfield" name="city" placeholder="City">
+                <input type="text" id="statefield" name="state" placeholder="State">
+                <input type="text" id="zipfield" style="max-width: 8rem" name="zip" placeholder="Zip">
+            </div>
+
+            <p class="note">Note: Currently we are only mailing in the US.</p>
+            <div id="price-order-button">
+                <p class="pricetag">$2.50</p>
+                <button id="order2" class="order">Order</button>
+            </div>
+        </div>
+    </div>
+</div>
