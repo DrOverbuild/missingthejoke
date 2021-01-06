@@ -6,6 +6,10 @@
                 templateUrl: "template/shop.html",
                 controller: "shopController"
             })
+            .when("/addressform/:stickerSelection", {
+                templateUrl: "template/address.html",
+                controller: "addressController"
+            })
             .otherwise({
                 templateUrl: "template/home.html"
             });
