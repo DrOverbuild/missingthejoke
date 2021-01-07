@@ -1,5 +1,5 @@
 # missingthejoke
-Source code for our podcast website, [missingthejoke.com](https://missingthejoke.com). 
+Source code for our podcast website, [missingthejoke.com](https://missingthejoke.com). The website has links to the Anchor.fm page, Patreon, and a page to buy stickers on our site.
 
 ## Stack
 Fully hosted on Google Firebase
