@@ -13,6 +13,10 @@
     ],
     "rewrites": [
       {
+        "source": "/setupPayment",
+        "function": "setupPayment"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
