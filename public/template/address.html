@@ -52,7 +52,7 @@
 
     <div class="row pt-3" id="price-order-button">
         <div class="col-12 text-right">
-            <p class="pricetag">${{price}}</p>
+            <p class="pricetag">{{price | currency}}</p>
             <button type="submit" id="order2" class="order" ng-disabled="addressForm.$invalid">Order</button>
         </div>
     </div>
