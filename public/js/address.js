@@ -2,7 +2,7 @@
     var mtjapp = angular.module('mtjapp');
 
     mtjapp.controller('addressController', function ($scope, $routeParams, $location, $http) {
-        const stripe = Stripe('pk_test_ujBFmTvkdHI9Xcrw31pgu69m00rgwjqWTi');
+        const stripe = Stripe('pk_live_RabnnLeEnQ57X8tZQ6TuXaI100PvZmTS2H');
 
         $scope.error = "";
 
