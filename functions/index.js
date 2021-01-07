@@ -155,7 +155,6 @@ const createSession = async function(response, address, product) {
 
     // check if customer exists
     if (customers.data && customers.data.length > 0) {
-        console.log("Found customer, updating...");
         customer = customers.data[0];
         customer = await stripe.customers.update(customer.id, {
             name: address.name,
@@ -166,7 +165,6 @@ const createSession = async function(response, address, product) {
             }
         });
     } else {
-        console.log("No customer, creating...");
         customer = await stripe.customers.create({
                 name: address.name,
                 email: address.email,
@@ -179,7 +177,10 @@ const createSession = async function(response, address, product) {
         );
     }
 
-    console.log(customer);
+    if (!customer) {
+        response.status(400).send("Unable to create customer.");
+        return;
+    }
 
     const session = await stripe.checkout.sessions.create({
         customer: customer.id,
