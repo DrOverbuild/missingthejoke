@@ -16,15 +16,22 @@
             zip: ""
         };
 
+        $scope.loadingSession = false;
+        $scope.productValid = $routeParams.stickerSelection === "both"
+            || $routeParams.stickerSelection === "artwork"
+            || $routeParams.stickerSelection === "derpface";
+
         if ($routeParams.stickerSelection == "both") {
             $scope.price = 3.50;
         }
 
         $scope.submit = function() {
+            $scope.loadingSession = true;
+
             console.log($scope.address);
             const data = {
                 address: $scope.address,
-                product: $routeParams.stickerSelection // TODO run check before completing this
+                product: $routeParams.stickerSelection
             }
             $http.post("https://us-central1-missingthejokecom.cloudfunctions.net/setupPayment", data)
                 .then( function (response) {
