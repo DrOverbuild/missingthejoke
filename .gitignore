@@ -67,4 +67,4 @@ node_modules/
 
 .idea/*
 
-./functions/creds.json
+functions/creds.json
