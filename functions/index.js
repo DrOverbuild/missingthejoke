@@ -29,7 +29,13 @@ app.post('/', async (request, response) => {
         return;
     }
 
-    const session = await createSession(response, address, product);
+    const origin = request.body.origin;
+
+    if (!validateOrigin(response, origin)) {
+        return;
+    }
+
+    const session = await createSession(response, address, product, origin);
 
     if (session && session.id) {
         response.json({id: session.id});
@@ -102,10 +108,19 @@ const validateProduct = function (response, product) {
     return true
 }
 
-const createSession = async function(response, address, product) {
+const validateOrigin = function (response, origin) {
+    if (!origin) {
+        response.status(400).send("Origin Required");
+        return false;
+    }
+
+    return true;
+}
+
+const createSession = async function(response, address, product, origin) {
     var productName = "";
     var imgUrl = "";
-    var price = 2.50;
+    var price = 250;
 
     const productDesc = "Our high quality vinyl 2\" x 2\" stickers are perfect for your laptop, notebook, HydroFlask" +
     "(sksksks), or any other surface you enjoy cluttering with brand representation. Sport the " +
@@ -116,13 +131,13 @@ const createSession = async function(response, address, product) {
 
     if (product === "artwork") {
         productName = "Missing the Joke Logo Sticker";
-        imgUrl = "https://missingthejoke.com/img/missingthejokelogo.jpg";
+        imgUrl = `${origin}/img/missingthejokelogo.jpg`;
     } else if (product === "derpface") {
         productName = "Missing the Joke Derpface Sticker";
-        imgUrl = "https://missingthejoke.com/img/wooosh.jpg";
+        imgUrl = `${origin}/img/wooosh.jpg`;
     } else if (product === "both") {
         productName = "Missing the Joke Logo and Derpface Stickers";
-        imgUrl = "https://missingthejoke.com/img/bothstickers.jpg";
+        imgUrl = `${origin}/img/bothstickers.jpg`;
         price = 350;
     } else{
         response.status(400).send("Error: Invalid product: Please choose 'artwork', 'derpface', or 'both'");
@@ -201,8 +216,8 @@ const createSession = async function(response, address, product) {
             },
         ],
         mode: 'payment',
-        success_url: `https://missingthejoke.com/success.html`,
-        cancel_url: `https://missingthejoke.com/cancel.html`,
+        success_url: `${origin}/#!/success`,
+        cancel_url: `${origin}/#!/shop`,
     });
 
     return session;

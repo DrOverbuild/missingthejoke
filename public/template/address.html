@@ -56,6 +56,12 @@
         </div>
     </div>
 
+    <div class="row pt-3" ng-show="error">
+        <div class="col-12 text-left">
+            <p class="error">An error has occured in processing the request: {{error}}</p>
+        </div>
+    </div>
+
     <div class="row pt-3" id="price-order-button">
         <div class="col-12 text-right">
             <p class="pricetag">{{price | currency}}</p>

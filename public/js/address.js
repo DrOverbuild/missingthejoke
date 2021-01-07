@@ -4,6 +4,8 @@
     mtjapp.controller('addressController', function ($scope, $routeParams, $location, $http) {
         const stripe = Stripe('pk_test_ujBFmTvkdHI9Xcrw31pgu69m00rgwjqWTi');
 
+        $scope.error = "";
+
         $scope.price = 2.50;
 
         $scope.address = {
@@ -31,14 +33,24 @@
             console.log($scope.address);
             const data = {
                 address: $scope.address,
-                product: $routeParams.stickerSelection
+                product: $routeParams.stickerSelection,
+                origin: location.origin
             }
             $http.post("https://us-central1-missingthejokecom.cloudfunctions.net/setupPayment", data)
                 .then( function (response) {
-                    console.log(response);
                     $scope.goToStripe(response.data.id);
                 }, function (error) {
-                    console.log(error); // todo could not handle request
+                    if (error.status === -1 || error.status === 500) {
+                        $scope.error = "An unknown internal server occurred.";
+                    } else {
+                        if (error.data) {
+                            $scope.error = error.data;
+                        } else {
+                            $scope.error = `error code ${error.status}`;
+                        }
+                    }
+
+                    console.log(error);
                 });
         }
 

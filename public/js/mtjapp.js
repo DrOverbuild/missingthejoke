@@ -10,6 +10,9 @@
                 templateUrl: "template/address.html",
                 controller: "addressController"
             })
+            .when("/success", {
+                templateUrl: "template/success.html"
+            })
             .otherwise({
                 templateUrl: "template/home.html"
             });
